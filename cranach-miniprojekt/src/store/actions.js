@@ -11,21 +11,23 @@ export default {
     const sortedPaintings = [];
 
     paintings.items.forEach((elem) => {
-      const year = elem.dating.begin;
-      let found = false;
-      sortedPaintings.forEach((element) => {
-        if (element.year === year) {
-          found = true;
-          element.items.push(elem);
+      if (elem.images) {
+        const year = elem.dating.begin;
+        let found = false;
+        sortedPaintings.forEach((element) => {
+          if (element.year === year) {
+            found = true;
+            element.items.push(elem);
+          }
+        });
+        if (!found) {
+          const newYear = {
+            year,
+            items: [],
+          };
+          newYear.items.push(elem);
+          sortedPaintings.push(newYear);
         }
-      });
-      if (!found) {
-        const newYear = {
-          year,
-          items: [],
-        };
-        newYear.items.push(elem);
-        sortedPaintings.push(newYear);
       }
     });
 
