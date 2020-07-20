@@ -1,0 +1,44 @@
+/* Sizes
+-------------------- */
+$base: 10px;
+$xs: 1 * $base;
+$s: 2 * $base;
+$m: 3 * $base;
+$l: 4 * $base;
+$xl: 5 * $base;
+
+/* Font Sizes
+------------------ */
+$f-xxs: 1 * $base;
+$f-xs: 1.25 * $base;
+$f-s: 1.6 * $base;
+$f-m: 2.5 * $base;
+$f-l: 3.15 * $base;
+$f-xl: 6 * $base;
+$f-xxl: 6.6 * $base;
+
+/* Font Properties
+---------------------------------------------------------------------------- */
+$font-family: SSP;
+$base-font-size-desktop: $f-s;
+$base-font-size-mobile: $f-xs;
+$font-icons: 'Material Icons';
+
+/* Font Weights
+---------------------------- */
+$fw-regular: 400;
+$fw-bold: 700;
+
+/* Base Colors
+---------------------------------------------------------------------------- */
+$white: #fff;
+$lightest: #f2f2f2;
+$lighter: #f0f0f0;
+$light: #ddd;
+
+$darkest: #222;
+$darker: #444;
+$dark: #b4b4b4;
+
+$accent-dark: #000321;
+$accent-bright: #fecb2f;
