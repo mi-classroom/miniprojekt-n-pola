@@ -1,18 +1,28 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <main>
+    <section v-for="paintings in paintings" :key="paintings.year">
+      <YearSeparator :year="paintings.year" :count ="paintings.items.length" />
+      <ImageGrid :images="paintings.items" />
+    </section>
+  </main>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue';
+import YearSeparator from '@/components/YearSeparator.vue';
+import ImageGrid from '@/components/ImageGrid.vue';
+import { mapState } from 'vuex';
 
 export default {
+  computed: {
+    ...mapState({
+      paintings: (state) => state.paintings,
+    }),
+  },
   name: 'Home',
   components: {
-    HelloWorld,
+    YearSeparator,
+    ImageGrid,
   },
 };
 </script>
