@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Header />
-    <router-view class="main-content"/>
+    <router-view />
   </div>
 </template>
 
@@ -18,7 +18,7 @@ export default {
       lang: 'de',
     };
   },
-  mounted() {
+  beforeMount() {
     this.$store.dispatch('loadPaintings', `/data/json/cda-paintings-v2.${this.lang}.json`);
   },
 };
@@ -26,9 +26,4 @@ export default {
 
 <style lang="scss">
   @import '@/styles/main';
-
-  .main-content {
-    max-width: $max-width-content;
-    margin: auto;
-  }
 </style>

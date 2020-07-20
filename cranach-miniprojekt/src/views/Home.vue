@@ -1,6 +1,6 @@
 <template>
-  <main>
-    <section v-for="paintings in paintings" :key="paintings.year">
+  <main class="main-content">
+    <section class="main-content__year" v-for="paintings in paintings" :key="paintings.year">
       <YearSeparator :year="paintings.year" :count ="paintings.items.length" />
       <ImageGrid :images="paintings.items" />
     </section>
@@ -26,3 +26,17 @@ export default {
   },
 };
 </script>
+
+<style scoped lang="scss">
+@import '@/styles/_variables';
+
+  .main-content {
+    max-width: $max-width-content;
+    margin: $l auto;
+
+    &__year {
+      margin-bottom: $l;
+    }
+  }
+
+</style>
