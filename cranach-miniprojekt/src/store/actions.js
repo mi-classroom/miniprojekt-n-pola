@@ -35,4 +35,7 @@ export default {
 
     commit('mutateSetPaintings', sortedPaintings);
   },
+  removeImageAction({ commit }, imgToRemove) {
+    commit('mutateRemoveImage', imgToRemove);
+  }
 };

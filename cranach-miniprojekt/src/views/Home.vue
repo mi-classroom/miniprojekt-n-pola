@@ -1,8 +1,12 @@
 <template>
   <main class="main-content">
-    <section class="main-content__year" v-for="paintings in paintings" :key="paintings.year">
-      <YearSeparator :year="paintings.year" :count ="paintings.items.length" />
-      <ImageGrid :images="paintings.items" />
+    <section
+      class="main-content__year"
+      v-for="(painting, index) in paintings"
+      :key="painting.year"
+    >
+      <YearSeparator :year="painting.year" :count="painting.items.length" />
+      <ImageGrid :images="painting.items" :indexYear="index" />
     </section>
   </main>
 </template>
@@ -16,27 +20,26 @@ import { mapState } from 'vuex';
 export default {
   computed: {
     ...mapState({
-      paintings: (state) => state.paintings,
-    }),
+      paintings: (state) => state.paintings
+    })
   },
   name: 'Home',
   components: {
     YearSeparator,
-    ImageGrid,
-  },
+    ImageGrid
+  }
 };
 </script>
 
 <style scoped lang="scss">
-@import '@/styles/_variables';
+@import "@/styles/_variables";
 
-  .main-content {
-    max-width: $max-width-content;
-    margin: $l auto;
+.main-content {
+  max-width: $max-width-content;
+  margin: $l auto;
 
-    &__year {
-      margin-bottom: $l;
-    }
+  &__year {
+    margin-bottom: $l;
   }
-
+}
 </style>
