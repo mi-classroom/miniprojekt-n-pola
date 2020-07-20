@@ -42,3 +42,15 @@ $dark: #b4b4b4;
 
 $accent-dark: #000321;
 $accent-bright: #fecb2f;
+
+/* Viewports
+--------------------*/
+$vp-small: 45 * $base;
+$vp-medium: 60 * $m;
+$vp-large: 94 * $m;
+
+/* Misc
+------------------------- */
+$max-width-content: 94 * $base;
+$gutter-grid: $s;
+$grid-count: 16;
