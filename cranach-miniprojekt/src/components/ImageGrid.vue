@@ -37,6 +37,8 @@ export default {
   display: grid;
   grid-gap: $gutter-grid;
   grid-template-columns: repeat($grid-count, 1fr);
+  overflow: hidden;
+  transition: all $transition-fast ease;
 
   &__object {
     grid-column: span 2;

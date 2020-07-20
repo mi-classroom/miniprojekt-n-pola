@@ -9,7 +9,8 @@
       </div>
     </div>
     <div class="akkordeon__icon-wrap">
-      <i class="icon icon--m year-separator__icon">expand_more</i>
+      <i class="icon icon--l year-separator__icon year-separator__icon--more"
+      :class="{'year-separator__icon--open': open}">expand_more</i>
     </div>
   </div>
 </template>
@@ -20,6 +21,7 @@ export default {
   props: {
     year: Number,
     count: Number,
+    open: Boolean
   },
 };
 </script>
@@ -32,6 +34,7 @@ export default {
   grid-template-columns: repeat($grid-count, 1fr);
   grid-gap: $gutter-grid;
   margin-bottom: $m;
+  cursor: pointer;
 
   &__heading {
     grid-column: span 2;
@@ -62,6 +65,14 @@ export default {
   &__icon {
     margin-right: $xs;
     color: $dark;
+    transition: all $transition-fast ease;
+
+    &--more {
+      color: $darkest;
+    }
+    &--open {
+      transform: rotateZ(180deg);
+    }
   }
 
 }

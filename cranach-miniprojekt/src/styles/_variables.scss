@@ -49,6 +49,11 @@ $vp-small: 45 * $base;
 $vp-medium: 60 * $m;
 $vp-large: 94 * $m;
 
+/* Transitions Times
+---------------------*/
+$transition-fast: .2s;
+$transition-normal: .4s;
+
 /* Misc
 ------------------------- */
 $max-width-content: 94 * $base;
