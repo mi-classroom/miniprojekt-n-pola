@@ -13,6 +13,14 @@ export default {
   components: {
     Header,
   },
+  data() {
+    return {
+      lang: 'de',
+    };
+  },
+  mounted() {
+    this.$store.dispatch('loadPaintings', `/data/json/cda-paintings-v2.${this.lang}.json`);
+  },
 };
 </script>
 
