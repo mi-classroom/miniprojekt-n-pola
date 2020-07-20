@@ -5,9 +5,8 @@
         class="image-grid__image"
         :alt="image.titles[0].title"
         :src="image.images.sizes.s.src"
-        @error="removeImage(index)"
+        @error="removeImage($event, index)"
       />
-      <p>{{ index }}</p>
     </figure>
   </div>
 </template>
@@ -20,9 +19,8 @@ export default {
   methods: {
     ...mapActions(['removeImageAction']),
     removeImage($event, index) {
-      this.removeImageAction({ indexYear: this.indexYear, indexImage: index });
       console.log(index);
-      $event.target.parentNode.remove();
+      this.removeImageAction({ indexYear: this.indexYear, indexImage: index });
     }
   },
   props: {
