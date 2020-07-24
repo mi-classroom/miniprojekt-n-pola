@@ -31,7 +31,7 @@ export default {
       }
     }
   },
-  updated() {
+  mounted() {
     this.$refs.reel.$el.style.height = `${this.$refs.reel.$el.scrollHeight}px`;
   },
   name: 'YearBlock',

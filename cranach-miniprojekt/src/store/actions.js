@@ -1,3 +1,5 @@
+// import state from './state';
+
 export default {
   async loadPaintings({ commit }, url) {
     const result = await fetch(url);
@@ -37,5 +39,18 @@ export default {
   },
   removeImageAction({ commit }, imgToRemove) {
     commit('mutateRemoveImage', imgToRemove);
+  },
+  showImageModal({ commit }, img) {
+    commit('muatateShowImageModal', img);
+    commit('mutateOpenModal');
+  },
+  closeModal({ commit }) {
+    commit('mutateCloseModal');
+  },
+  modalNextImage({ commit }) {
+    commit('mutateNextImage');
+  },
+  modalPrevImage({ commit }) {
+    commit('mutatePrevImage');
   }
 };

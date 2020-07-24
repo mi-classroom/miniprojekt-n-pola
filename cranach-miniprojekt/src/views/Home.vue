@@ -5,12 +5,13 @@
     :key="painting.year"
     :painting="painting"
     :indexYear="index" />
+    <modal />
   </main>
 </template>
 
 <script>
-// @ is an alias to /src
 import Year from '@/components/Year.vue';
+import modal from '@/components/Modal.vue';
 import { mapState } from 'vuex';
 
 export default {
@@ -21,7 +22,8 @@ export default {
   },
   name: 'Home',
   components: {
-    Year
+    Year,
+    modal
   }
 };
 </script>

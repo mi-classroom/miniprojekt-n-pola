@@ -29,6 +29,12 @@ $font-icons: 'Material Icons';
 $fw-regular: 400;
 $fw-bold: 700;
 
+/* Line Heights
+---------------------------------------------------------------------------- */
+$lh-tight: 110%;
+$lh-default: 130%;
+$lh-loose: 150%;
+
 /* Base Colors
 ---------------------------------------------------------------------------- */
 $white: #fff;
@@ -37,6 +43,7 @@ $lighter: #f0f0f0;
 $light: #ddd;
 
 $darkest: #222;
+$darkest-50: rgba(0, 0, 0, 0.8);
 $darker: #444;
 $dark: #b4b4b4;
 
@@ -51,12 +58,14 @@ $vp-large: 94 * $m;
 
 /* Transitions Times
 ---------------------*/
-$transition-fast: .2s;
-$transition-normal: .4s;
+$transition-fast: 0.2s;
+$transition-normal: 0.4s;
 
 /* Misc
 ------------------------- */
 $max-width-content: 94 * $base;
+$modal-height: 46 * $base;
 $gutter-grid: $s;
 $grid-count: 12;
+$grid-span-half: $grid-count / 2;
 $border-width: 2px;
