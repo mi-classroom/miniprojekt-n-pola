@@ -46,5 +46,11 @@ export default {
   },
   closeModal({ commit }) {
     commit('mutateCloseModal');
+  },
+  modalNextImage({ commit }) {
+    commit('mutateNextImage');
+  },
+  modalPrevImage({ commit }) {
+    commit('mutatePrevImage');
   }
 };

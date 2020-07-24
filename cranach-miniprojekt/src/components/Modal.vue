@@ -9,8 +9,12 @@
           <h3 class="modal__details__text__heading">{{painting.titles[0].title}}</h3>
           <p class="modal__details__text__description">{{painting.description}}</p>
           <article class="modal__details__facts">
-            <p>{{painting.locations[0].term}}</p>
-            <p>{{painting.owner}}</p>
+            <p>{{painting.locations[0].term}}
+            <br>{{painting.owner}}</p>
+            <p>{{painting.structuredDimension.height}}
+              x
+              {{painting.structuredDimension.width}} cm
+            </p>
             <p class="modal__details__fact modal__details__fact--small">
               {{painting.inventoryNumber}}<br>{{painting.dating.dated}}
             </p>
@@ -20,12 +24,14 @@
       <button class="modal__button modal__button--close" @click="closeModal">
           <i class="icon icon--s modal__button__icon">close</i>
       </button>
+      <ModalNav />
     </article>
   </div>
 </template>
 
 <script>
 import { mapState, mapActions } from 'vuex';
+import ModalNav from '@/components/ModalNavigation.vue';
 
 export default {
   computed: {
@@ -42,7 +48,10 @@ export default {
   methods: {
     ...mapActions(['closeModal']),
   },
-  name: 'modal'
+  name: 'modal',
+  components: {
+    ModalNav
+  },
 };
 </script>
 

@@ -20,7 +20,6 @@ export default {
   methods: {
     ...mapActions(['removeImageAction', 'showImageModal']),
     removeImage($event, index) {
-      console.log(index);
       this.removeImageAction({ indexYear: this.indexYear, indexImage: index });
     },
     openModal(indexImage) {
