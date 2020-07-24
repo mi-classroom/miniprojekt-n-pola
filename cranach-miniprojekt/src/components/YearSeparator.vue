@@ -60,6 +60,7 @@ export default {
     background: $white;
     padding: 0 $xs;
     color: $dark;
+    user-select: none;
   }
 
   &__icon {
