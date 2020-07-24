@@ -1,7 +1,7 @@
 <template>
   <header class="main-header">
     <div class="main-header__content">
-      <h2>cda_</h2>
+      <h2>CDA_</h2>
       <nav>
         <router-link to="/">Deutsch</router-link> |
         <router-link to="/en">English</router-link>
