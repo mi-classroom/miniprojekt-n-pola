@@ -1,0 +1,51 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: $font-family;
+  font-size: $base-font-size-desktop;
+  font-weight: $fw-regular;
+  color: $darkest;
+  @media screen and (max-width: $vp-small) {
+    font-size: $base-font-size-mobile;
+  }
+}
+
+/* Headlines
+----------------------*/
+h1,
+h2,
+h3,
+h4 {
+  font-weight: $fw-bold;
+  hyphens: none;
+}
+
+h1 {
+  font-size: $f-xxl;
+
+  @media screen and (max-width: $vp-small) {
+    font-size: $f-xl;
+  }
+}
+
+h2 {
+  font-size: $f-l;
+}
+
+h3 {
+  font-size: $f-m;
+}
+
+h4 {
+  font-size: $f-s;
+}
+
+/* Images
+-----------------------*/
+
+img {
+  width: 100%;
+}

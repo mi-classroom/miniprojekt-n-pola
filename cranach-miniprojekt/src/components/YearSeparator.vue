@@ -1,0 +1,85 @@
+<template>
+  <div class="year-separator">
+    <h1 class="year-separator__heading">{{year}}</h1>
+    <div class="year-separator__counter">
+      <span class="year-separator__line" />
+      <div class="year-separator__content">
+        <i class="icon icon--m year-separator__icon">photo</i>
+        {{count}}
+      </div>
+    </div>
+    <div class="akkordeon__icon-wrap">
+      <i class="icon icon--l year-separator__icon year-separator__icon--more"
+      :class="{'year-separator__icon--open': open}">expand_more</i>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'YearSeparator',
+  props: {
+    year: Number,
+    count: Number,
+    open: Boolean
+  },
+};
+</script>
+
+<style scoped lang="scss">
+@import '@/styles/_variables';
+
+.year-separator {
+  display: grid;
+  grid-template-columns: repeat($grid-count, 1fr);
+  grid-gap: $gutter-grid;
+  margin-bottom: $m;
+  cursor: pointer;
+
+  &__heading {
+    grid-column: span 2;
+  }
+
+  &__counter {
+    grid-column: span 9;
+    transform: translate3d(0,0,0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__line {
+    position: absolute;
+    width: 100%;
+    height: $border-width;
+    background: $dark;
+    z-index: -1;
+  }
+
+  &__content {
+    background: $white;
+    padding: 0 $xs;
+    color: $dark;
+  }
+
+  &__icon {
+    margin-right: $xs;
+    color: $dark;
+    transition: all $transition-fast ease;
+
+    &--more {
+      color: $darkest;
+    }
+    &--open {
+      transform: rotateZ(180deg);
+    }
+  }
+
+}
+
+.akkordeon__icon-wrap {
+  display: flex;
+  align-items: center;
+}
+
+</style>
