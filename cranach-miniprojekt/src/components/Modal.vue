@@ -6,8 +6,8 @@
           :src="painting.images.sizes.s.src"
         />
         <figcaption class="modal__details__text">
-          <h3>{{painting.titles[0].title}}</h3>
-          <p>{{painting.description}}</p>
+          <h3 class="modal__details__text__heading">{{painting.titles[0].title}}</h3>
+          <p class="modal__details__text__description">{{painting.description}}</p>
           <article class="modal__details__facts">
             <p>{{painting.locations[0].term}}</p>
             <p>{{painting.owner}}</p>
@@ -88,6 +88,19 @@ export default {
       color: $white;
       display: flex;
       flex-flow: column;
+      height: $modal-height;
+
+      &__heading {
+        margin-bottom: $s;
+      }
+
+      &__description {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: 11;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+      }
     }
 
     &__facts {
