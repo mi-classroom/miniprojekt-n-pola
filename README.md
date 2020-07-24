@@ -16,7 +16,7 @@ Ich habe mich dazu entschieden <b>Vue.js</b> zu nutzen, da hier das Arbeiten in 
 * [ ] Responsive
 
 ## Extra Features
-* [ ] Navigation of Modal with Keyboard
+* [X] Navigation of Modal with Keyboard
   * Esc = Close
   * ArrowRight = NextImage
   * ArrowLeft = PreviousImage
