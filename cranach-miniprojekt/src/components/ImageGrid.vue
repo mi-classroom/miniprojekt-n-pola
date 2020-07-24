@@ -6,6 +6,7 @@
         :alt="image.titles[0].title"
         :src="image.images.sizes.s.src"
         @error="removeImage($event, index)"
+        @click="openModal(index)"
       />
     </figure>
   </div>
@@ -17,10 +18,13 @@ import { mapActions } from 'vuex';
 export default {
   name: 'ImageGrid',
   methods: {
-    ...mapActions(['removeImageAction']),
+    ...mapActions(['removeImageAction', 'showImageModal']),
     removeImage($event, index) {
       console.log(index);
       this.removeImageAction({ indexYear: this.indexYear, indexImage: index });
+    },
+    openModal(indexImage) {
+      this.showImageModal({ indexYear: this.indexYear, indexImage });
     }
   },
   props: {
@@ -43,6 +47,7 @@ export default {
   &__object {
     grid-column: span 2;
     transform: translate3d(0, 0, 0);
+    cursor: pointer;
 
     &::before {
       content: '';

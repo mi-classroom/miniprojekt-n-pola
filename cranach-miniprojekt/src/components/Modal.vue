@@ -1,31 +1,23 @@
 <template>
-  <div class="modal">
+  <div class="modal" v-show="open" @click.self="closeModal">
     <article class="modal__content">
       <figure class="modal__details">
         <img class="modal__details__image"
-          src="http://lucascranach.org/imageserver/CH_KMB_179_FR281B/pyramid/DCH_KMB_179_FR281B_Detail-004-l.jpg"
+          :src="painting.images.sizes.s.src"
         />
         <figcaption class="modal__details__text">
-          <h3>Frau eines Rechtsgelehrten</h3>
-          <p>
-            "Brustbild nach links, ohne Hände, vor blauem Grund. Sie hat graublaue Augen und an den
-            Schläfen sichtbares blondes Haar. Sie trägt ein moireseidenes rotes Kleid mit engen
-            Ärmeln, geschnürtem Mieder und breiten gemusterten Goldborten, einen Brustlatz mit einer
-            Darstellung der Jungfrau mit dem Einhorn, flankiert von zwei Personen (Jägern?), ein
-            Schulterhemd mit Goldborten, einen goldenen Halsreif und Goldketten. Die Haube besteht
-            aus aufgepolsterten dunkleren Zöpfen mit goldfarbenem perlenbesticktem Flechtrand und
-            einem roten Bändchen.\n\n[Löcher, Cat. Nuremberg 1997, 160]"
-          </p>
+          <h3>{{painting.titles[0].title}}</h3>
+          <p>{{painting.description}}</p>
           <article class="modal__details__facts">
-            <p>Nürnberg</p>
-            <p>Germanisches Nationalmuseum, Nürnberg</p>
+            <p>{{painting.locations[0].term}}</p>
+            <p>{{painting.owner}}</p>
             <p class="modal__details__fact modal__details__fact--small">
-              DE_GNMN_Gm614<br>1503,1507,1508
+              {{painting.inventoryNumber}}<br>{{painting.dating.dated}}
             </p>
           </article>
         </figcaption>
       </figure>
-      <button class="modal__button modal__button--close">
+      <button class="modal__button modal__button--close" @click="closeModal">
           <i class="icon icon--s modal__button__icon">close</i>
       </button>
     </article>
@@ -33,7 +25,23 @@
 </template>
 
 <script>
+import { mapState, mapActions } from 'vuex';
+
 export default {
+  computed: {
+    ...mapState({
+      currentImage: (state) => state.currentModalImage,
+      open: (state) => state.modalOpen,
+      // eslint-disable-next-line max-len
+      paintings: (state) => state.paintings
+    }),
+    painting() {
+      return this.paintings[this.currentImage.indexYear].items[this.currentImage.indexImage];
+    }
+  },
+  methods: {
+    ...mapActions(['closeModal']),
+  },
   name: 'modal'
 };
 </script>
@@ -95,6 +103,7 @@ export default {
   }
 
   &__button {
+    cursor: pointer;
     &--close {
       position: absolute;
       width: $s;
