@@ -30,7 +30,7 @@ export default {
     this.$refs.reel.style.height = `${this.$refs.reel.scrollHeight}px`;
   },
   updated() {
-    if (this.$refs.reel.style.height !== 0) { this.$refs.reel.style.height = `${this.$refs.reel.scrollHeight}px`; }
+    if (this.$refs.reel.style.height !== 0) { this.$refs.reel.style.height = 'auto'; this.$refs.reel.style.height = `${this.$refs.reel.scrollHeight}px`; }
   },
   props: {
     images: Array,
