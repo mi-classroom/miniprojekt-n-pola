@@ -1,29 +1,57 @@
 <template>
   <nav class="dropwdown-menu">
     <div class="dropwdown-menu__header" @click="isOpen = !isOpen">
-      <span>Deutsch</span>
+      <span>{{currentLang.label}}</span>
       <i class="icon icon--m ">arrow_drop_down</i>
     </div>
     <ul v-show="isOpen" class="dropwdown-menu__list">
-      <li class="dropwdown-menu__language">
-        <router-link class="dropwdown-menu__link" to="/en">English</router-link>
-      </li>
-      <li class="dropwdown-menu__language">
-        <router-link class="dropwdown-menu__link" to="/en">English</router-link>
-      </li>
-      <li class="dropwdown-menu__language">
-        <router-link class="dropwdown-menu__link" to="/en">English</router-link>
+      <li v-for="lang in filteredLangs" class="dropwdown-menu__language" :key="lang.lang">
+        <router-link class="dropwdown-menu__link" :to="lang.link">
+          <span @click.self="isOpen = !isOpen; setLang(lang)">
+            {{lang.label}}
+          </span>
+        </router-link>
       </li>
     </ul>
   </nav>
 </template>
 
 <script>
+import { mapState, mapActions } from 'vuex';
+
 export default {
   name: 'Language Switcher',
+  computed: {
+    ...mapState({
+      currentLang: (state) => state.currentLang,
+    }),
+    filteredLangs() {
+      const filteredLangs = [];
+      this.langs.forEach((element) => {
+        // eslint-disable-next-line eqeqeq
+        if (element.lang != this.currentLang.lang) { filteredLangs.push(element); }
+      });
+      return filteredLangs;
+    }
+  },
+  methods: {
+    ...mapActions(['setLang']),
+  },
   data() {
     return {
       isOpen: false,
+      langs: [
+        {
+          lang: 'de',
+          link: '/de',
+          label: 'Deutsch'
+        },
+        {
+          lang: 'en',
+          link: '/en',
+          label: 'English'
+        }
+      ]
     };
   }
 
@@ -40,6 +68,7 @@ export default {
     display: flex;
     align-items: center;
     padding: $xxs $xs;
+    cursor: pointer;
   }
 
   &__list {

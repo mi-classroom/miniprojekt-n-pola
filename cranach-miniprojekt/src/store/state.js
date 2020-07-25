@@ -1,5 +1,6 @@
 export default {
   paintings: [],
   currentModalImage: {},
-  modalOpen: false
+  modalOpen: false,
+  currentLang: {}
 };

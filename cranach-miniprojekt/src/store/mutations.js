@@ -39,5 +39,8 @@ export default {
     }
 
     state.currentModalImage = { indexImage, indexYear };
+  },
+  mutateLang(state, newLang) {
+    state.currentLang = newLang;
   }
 };

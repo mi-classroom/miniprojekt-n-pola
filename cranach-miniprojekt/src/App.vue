@@ -17,14 +17,21 @@ export default {
   },
   computed: {
     ...mapState({
-      open: (state) => state.modalOpen,
+      open: (state) => state.modalOpen
     }),
   },
   methods: {
-    ...mapActions(['closeModal', 'modalPrevImage', 'modalNextImage'])
+    ...mapActions(['closeModal', 'modalPrevImage', 'modalNextImage', 'setLang'])
   },
   created() {
-    if (!this.$route.params.lang) { router.push('/de'); }
+    if (!this.$route.params.lang) {
+      router.push('/de');
+      this.setLang({
+        lang: 'de',
+        link: '/de',
+        label: 'Deutsch'
+      });
+    }
     window.addEventListener('keyup', (e) => {
       console.log(e.key);
       if (e.key === 'Escape') {
