@@ -26,11 +26,11 @@ export default {
     modal
   },
   beforeMount() {
-    this.$store.dispatch('loadPaintings', `/data/json/cda-paintings-v2.${this.$route.params.lang}.json`);
+    this.$store.dispatch('loadPaintings', `./data/json/cda-paintings-v2.${this.$route.params.lang}.json`);
   },
   watch: {
     $route() {
-      this.$store.dispatch('loadPaintings', `/data/json/cda-paintings-v2.${this.$route.params.lang}.json`);
+      this.$store.dispatch('loadPaintings', `./data/json/cda-paintings-v2.${this.$route.params.lang}.json`);
     }
   }
 };
