@@ -24,7 +24,7 @@ export default {
     ...mapActions(['closeModal', 'modalPrevImage', 'modalNextImage', 'setLang'])
   },
   created() {
-    if (!this.$route.params.lang) {
+    if (!this.$route.params.lang || this.$route.params.lang === 'index.html') {
       router.push('/de');
       this.setLang({
         lang: 'de',
