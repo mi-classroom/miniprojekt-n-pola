@@ -2,17 +2,19 @@
   <header class="main-header">
     <div class="main-header__content">
       <h2>CDA_</h2>
-      <nav>
-        <router-link to="/de">Deutsch</router-link> |
-        <router-link to="/en">English</router-link>
-      </nav>
+      <langSwitcher />
     </div>
   </header>
 </template>
 
 <script>
+import langSwitcher from './LangSwitcher.vue';
+
 export default {
   name: 'Header',
+  components: {
+    langSwitcher
+  }
 };
 </script>
 
