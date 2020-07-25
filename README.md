@@ -10,7 +10,7 @@ Ich habe mich dazu entschieden <b>Vue.js</b> zu nutzen, da hier das Arbeiten in 
 * [x] Layout nachstellen
 * [x] Detailansicht bei Klick auf Bilder
 * [x] Navigation in der Detailansicht
-* [ ] Sprachwechsler
+* [X] Sprachwechsler
 * [x] Akkordeon
 * [ ] Akkordeon Switch Mobile
 * [ ] Responsive
