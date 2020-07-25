@@ -20,3 +20,4 @@ Ich habe mich dazu entschieden <b>Vue.js</b> zu nutzen, da hier das Arbeiten in 
   * Esc = Close
   * ArrowRight = NextImage
   * ArrowLeft = PreviousImage
+* [X] Modal closes when clicking outside of it
