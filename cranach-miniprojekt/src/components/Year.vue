@@ -1,3 +1,4 @@
+/* eslint-disable func-names */
 <template>
   <section class="main-content__year">
     <YearSeparator :year="painting.year" :count="painting.items.length"
@@ -30,9 +31,6 @@ export default {
         this.open = !this.open;
       }
     }
-  },
-  mounted() {
-    this.$refs.reel.$el.style.height = `${this.$refs.reel.$el.scrollHeight}px`;
   },
   name: 'YearBlock',
   components: {

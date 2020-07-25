@@ -19,13 +19,15 @@ body {
 h1,
 h2,
 h3,
-h4 {
+h4,
+.heading {
   font-weight: $fw-bold;
   hyphens: none;
   line-height: $lh-default;
 }
 
-h1 {
+h1,
+.heading--h1 {
   font-size: $f-xxl;
 
   @media screen and (max-width: $vp-small) {
@@ -33,15 +35,18 @@ h1 {
   }
 }
 
-h2 {
+h2,
+.heading--h2 {
   font-size: $f-l;
 }
 
-h3 {
+h3,
+.heading--h3 {
   font-size: $f-m;
 }
 
-h4 {
+h4,
+.heading--h4 {
   font-size: $f-s;
 }
 

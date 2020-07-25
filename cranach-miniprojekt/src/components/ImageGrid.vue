@@ -1,5 +1,5 @@
 <template>
-  <div class="image-grid">
+  <div ref="reel" class="image-grid">
     <figure v-for="(image, index) in images" class="image-grid__object" :key="image.objectID">
       <img
         class="image-grid__image"
@@ -25,6 +25,12 @@ export default {
     openModal(indexImage) {
       this.showImageModal({ indexYear: this.indexYear, indexImage });
     }
+  },
+  mounted() {
+    this.$refs.reel.style.height = `${this.$refs.reel.scrollHeight}px`;
+  },
+  updated() {
+    if (this.$refs.reel.style.height !== 0) { this.$refs.reel.style.height = 'auto'; this.$refs.reel.style.height = `${this.$refs.reel.scrollHeight}px`; }
   },
   props: {
     images: Array,

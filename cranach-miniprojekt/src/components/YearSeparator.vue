@@ -1,6 +1,6 @@
 <template>
   <div class="year-separator">
-    <h1 class="year-separator__heading">{{year}}</h1>
+    <time class="year-separator__heading heading heading--h1">{{year}}</time>
     <div class="year-separator__counter">
       <span class="year-separator__line" />
       <div class="year-separator__content">

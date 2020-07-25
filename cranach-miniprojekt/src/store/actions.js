@@ -52,5 +52,8 @@ export default {
   },
   modalPrevImage({ commit }) {
     commit('mutatePrevImage');
+  },
+  setLang({ commit }, newLang) {
+    commit('mutateLang', newLang);
   }
 };
