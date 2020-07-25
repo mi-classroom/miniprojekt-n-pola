@@ -7,6 +7,7 @@
 
 <script>
 import { mapActions, mapState } from 'vuex';
+import router from '@/router';
 import Header from '@/components/Header.vue';
 
 export default {
@@ -19,18 +20,11 @@ export default {
       open: (state) => state.modalOpen,
     }),
   },
-  data() {
-    return {
-      lang: 'de',
-    };
-  },
   methods: {
     ...mapActions(['closeModal', 'modalPrevImage', 'modalNextImage'])
   },
-  beforeMount() {
-    this.$store.dispatch('loadPaintings', `/data/json/cda-paintings-v2.${this.lang}.json`);
-  },
   created() {
+    if (!this.$route.params.lang) { router.push('/de'); }
     window.addEventListener('keyup', (e) => {
       console.log(e.key);
       if (e.key === 'Escape') {

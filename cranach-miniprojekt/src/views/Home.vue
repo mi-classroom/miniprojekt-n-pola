@@ -24,6 +24,14 @@ export default {
   components: {
     Year,
     modal
+  },
+  beforeMount() {
+    this.$store.dispatch('loadPaintings', `/data/json/cda-paintings-v2.${this.$route.params.lang}.json`);
+  },
+  watch: {
+    $route() {
+      this.$store.dispatch('loadPaintings', `/data/json/cda-paintings-v2.${this.$route.params.lang}.json`);
+    }
   }
 };
 </script>

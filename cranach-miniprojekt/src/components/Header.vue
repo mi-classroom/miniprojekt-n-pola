@@ -3,7 +3,7 @@
     <div class="main-header__content">
       <h2>CDA_</h2>
       <nav>
-        <router-link to="/">Deutsch</router-link> |
+        <router-link to="/de">Deutsch</router-link> |
         <router-link to="/en">English</router-link>
       </nav>
     </div>
