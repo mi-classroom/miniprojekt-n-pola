@@ -21,3 +21,12 @@ Ich habe mich dazu entschieden <b>Vue.js</b> zu nutzen, da hier das Arbeiten in 
   * ArrowRight = NextImage
   * ArrowLeft = PreviousImage
 * [X] Modal closes when clicking outside of it
+
+## Probleme / Lösungen
+### Viele Bilder sind nicht verfügbar
+Viele der hinterlegten Links zu Bildern führen zu nicht vorhandenen Bildern. Somit werden auf einem Großteil der Seite broken images dargestellt.
+Um die zu vermeiden sollten Bilder, die 404 zurückgeben, irgendwie gefiltert werden. Durch die CORS Policy vom Cranach Archiv kann man den Status der Bilder leider nicht per fetch API abfragen, somit habe ich eine error funktion auf das onerror Event jedes Bildes gelegt. Wenn ein Bild nicht verfügbar ist wird es aus dem Store entfernt und nicht mehr dargestellt.
+Da immer mehrere Bilder gleichzeitig geladen werden und das ganze bei jedem Store update neu ausgeführt wird, verschwinden die Bilder leider alle nacheinander und zu einem Zeitpunkt wo der User dies schon sieht.
+
+### Jahreszahl auf Desktop ist H1
+Um mehrer H1 auf einer Seite zu vermeiden habe ich pseudo Heading Klassen eingeführt, die das gleiche Styling haben wie die echten Headings.
