@@ -67,6 +67,7 @@ export default {
     position: absolute;
     object-fit: cover;
     height: 100%;
+    user-select: none;
   }
 }
 </style>
