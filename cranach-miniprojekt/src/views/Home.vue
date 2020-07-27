@@ -43,8 +43,8 @@ export default {
   max-width: $max-width-content;
   margin: $l auto;
 
-  &__year {
-    margin-bottom: $l;
-  }
+  @media screen and (max-width: $vp-small) {
+      margin: 0 auto;
+    }
 }
 </style>

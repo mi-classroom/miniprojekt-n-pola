@@ -40,6 +40,17 @@ export default {
 };
 </script>
 
-<style>
+<style scoped lang="scss">
+@import '@/styles/_variables';
 
+.main-content {
+
+  &__year {
+    margin-bottom: $l;
+
+    @media screen and (max-width: $vp-small) {
+      margin-bottom: $grid-mobile-gutter;
+    }
+  }
+}
 </style>

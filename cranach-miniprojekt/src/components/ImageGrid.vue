@@ -69,5 +69,14 @@ export default {
     height: 100%;
     user-select: none;
   }
+
+  @media screen and (max-width: $vp-small) {
+    grid-template-columns: repeat($grid-mobile-count, 1fr);
+    grid-gap: $grid-mobile-gutter;
+
+    &__object {
+      grid-column: span 1;
+    }
+  }
 }
 </style>
