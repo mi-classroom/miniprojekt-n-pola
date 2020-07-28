@@ -1,11 +1,11 @@
 <template>
   <main class="main-content">
-    <h1 @click="toggleAll">Toggle All</h1>
     <Year
     v-for="(painting, index) in paintings"
     :key="painting.year"
     :painting="painting"
     :indexYear="index"
+    @toggleAll="console.log('wtf')"
     ref="year" />
     <modal />
   </main>
@@ -66,7 +66,7 @@ export default {
   margin: $l auto;
 
   @media screen and (max-width: $vp-small) {
-      margin: 0 auto;
+      margin: 0 auto $xxl;
     }
 }
 </style>

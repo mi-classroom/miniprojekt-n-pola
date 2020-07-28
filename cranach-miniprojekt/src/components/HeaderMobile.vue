@@ -2,7 +2,7 @@
   <header class="main-header">
     <div class="main-header__content">
       <h2>CDA_</h2>
-      <i class="icon icon--l year-separator__icon">reorder</i>
+      <i class="icon icon--l year-separator__icon" @click="toggleAll">reorder</i>
     </div>
   </header>
 </template>
@@ -11,6 +11,11 @@
 
 export default {
   name: 'HeaderMobile',
+  methods: {
+    toggleAll() {
+      this.$emit('toggleAll');
+    }
+  }
 };
 </script>
 

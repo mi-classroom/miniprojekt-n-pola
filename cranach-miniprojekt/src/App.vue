@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <Header v-if="!isMobile()" />
-    <HeaderMobile v-else />
-    <router-view />
+    <HeaderMobile v-else @toggleAll="toggleAccordion"/>
+    <router-view ref="viewContent"/>
   </div>
 </template>
 
@@ -26,7 +26,10 @@ export default {
     }),
   },
   methods: {
-    ...mapActions(['closeModal', 'modalPrevImage', 'modalNextImage', 'setLang'])
+    ...mapActions(['closeModal', 'modalPrevImage', 'modalNextImage', 'setLang']),
+    toggleAccordion() {
+      this.$refs.viewContent.toggleAll();
+    }
   },
   created() {
     if (!this.$route.params.lang || this.$route.params.lang === 'index.html') {
