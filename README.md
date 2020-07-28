@@ -30,3 +30,6 @@ Da immer mehrere Bilder gleichzeitig geladen werden und das ganze bei jedem Stor
 
 ### Jahreszahl auf Desktop ist H1
 Um mehrer H1 auf einer Seite zu vermeiden habe ich pseudo Heading Klassen eingeführt, die das gleiche Styling haben wie die echten Headings.
+
+### Responsive
+Neben den normalen Media Queries verwende ich eine method, welche mobile Browser erkennt, um komplett andere Komponenten darzustellen. In Fälle bei denen sich eine Komponete im Mobile Zustand stark verändert ist so das handling etwas einfacher und das scss übersichtlicher.
