@@ -1,10 +1,12 @@
 <template>
   <main class="main-content">
+    <h1 @click="toggleAll">Toggle All</h1>
     <Year
     v-for="(painting, index) in paintings"
     :key="painting.year"
     :painting="painting"
-    :indexYear="index" />
+    :indexYear="index"
+    ref="year" />
     <modal />
   </main>
 </template>
@@ -15,12 +17,32 @@ import modal from '@/components/Modal.vue';
 import { mapState } from 'vuex';
 
 export default {
+  name: 'Home',
+  data() {
+    return {
+      toggleState: false,
+    };
+  },
   computed: {
     ...mapState({
       paintings: (state) => state.paintings
     })
   },
-  name: 'Home',
+  methods: {
+    toggleAll() {
+      if (this.toggleState) {
+        this.$refs.year.forEach((element) => {
+          element.openAccordion();
+        });
+        this.toggleState = !this.toggleState;
+      } else {
+        this.$refs.year.forEach((element) => {
+          element.closeAccordion();
+        });
+        this.toggleState = !this.toggleState;
+      }
+    }
+  },
   components: {
     Year,
     modal

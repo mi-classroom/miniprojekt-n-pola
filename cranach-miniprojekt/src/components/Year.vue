@@ -30,7 +30,15 @@ export default {
         this.$refs.reel.$el.style.height = `${this.$refs.reel.$el.scrollHeight}px`;
         this.open = !this.open;
       }
-    }
+    },
+    openAccordion() {
+      this.$refs.reel.$el.style.height = `${this.$refs.reel.$el.scrollHeight}px`;
+      this.open = true;
+    },
+    closeAccordion() {
+      this.$refs.reel.$el.style.height = 0;
+      this.open = false;
+    },
   },
   name: 'YearBlock',
   components: {
