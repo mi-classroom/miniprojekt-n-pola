@@ -43,5 +43,13 @@ export default {
       color: $accent-bright;
     }
   }
+
+  @media screen and (max-width: $vp-small) {
+    position: inherit;
+    padding: 0 $s;
+    margin-top: $s;
+    display: flex;
+    justify-content: space-between;
+  }
 }
 </style>

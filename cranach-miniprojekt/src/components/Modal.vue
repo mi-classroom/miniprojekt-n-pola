@@ -5,6 +5,7 @@
         <img class="modal__details__image"
           :src="painting.images.sizes.s.src"
         />
+        <ModalNav />
         <figcaption class="modal__details__text">
           <h3 class="modal__details__text__heading">{{painting.titles[0].title}}</h3>
           <p class="modal__details__text__description">{{painting.description}}</p>
@@ -24,7 +25,7 @@
       <button class="modal__button modal__button--close" @click="closeModal">
           <i class="icon icon--s modal__button__icon">close</i>
       </button>
-      <ModalNav />
+
     </article>
   </div>
 </template>
@@ -134,6 +135,36 @@ export default {
       right: - $xs;
       background: $light;
       border-radius: 100%;
+    }
+  }
+
+  @media screen and (max-width: $vp-small) {
+    align-items: flex-start;
+    overflow-y: scroll;
+    &__content {
+      max-width: 100%;
+      border: 0;
+      min-height: calc(100% - #{$xxl} );
+            margin-bottom: $xxl;
+    }
+
+    &__details {
+      display: block;
+      height: 100%;
+
+      &__image {
+        height: 50vh;
+      }
+
+      &__text {
+        padding: $s;
+        height: auto;
+      }
+    }
+
+    &__button {
+      top: $xs;
+      right: $xs;
     }
   }
 }
