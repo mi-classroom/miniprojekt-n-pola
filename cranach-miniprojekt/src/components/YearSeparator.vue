@@ -76,6 +76,11 @@ export default {
     }
   }
 
+  &__icon-wrap {
+    display: flex;
+    align-items: center;
+  }
+
   @media screen and (max-width: $vp-small) {
     grid-template-columns: repeat($grid-count, 1fr);
     background: $darkest;
@@ -109,12 +114,6 @@ export default {
       margin-right: $xxs;
     }
   }
-
-}
-
-.akkordeon__icon-wrap {
-  display: flex;
-  align-items: center;
 }
 
 </style>

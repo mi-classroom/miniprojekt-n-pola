@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <Header />
+    <Header v-if="!isMobile()" />
+    <HeaderMobile v-else />
     <router-view />
   </div>
 </template>
@@ -9,11 +10,15 @@
 import { mapActions, mapState } from 'vuex';
 import router from '@/router';
 import Header from '@/components/Header.vue';
+import HeaderMobile from '@/components/HeaderMobile.vue';
+import isMobile from '@/mixins/isMobile';
 
 export default {
+  mixins: [isMobile],
   name: 'App',
   components: {
     Header,
+    HeaderMobile
   },
   computed: {
     ...mapState({
