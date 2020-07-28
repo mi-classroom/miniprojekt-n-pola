@@ -22,7 +22,8 @@ export default {
   },
   computed: {
     ...mapState({
-      open: (state) => state.modalOpen
+      open: (state) => state.modalOpen,
+      languages: (state) => state.availableLanguages
     }),
   },
   methods: {
@@ -34,11 +35,13 @@ export default {
   created() {
     if (!this.$route.params.lang || this.$route.params.lang === 'index.html') {
       router.push('/de');
-      this.setLang({
-        lang: 'de',
-        link: '/de',
-        label: 'Deutsch'
-      });
+      this.setLang(this.languages.de);
+    } else {
+      const currentLang = this.$route.params.lang.replace('/', '');
+      if (this.languages[currentLang]) { this.setLang(this.languages[currentLang]); } else {
+        router.push('/de');
+        this.setLang(this.languages.de);
+      }
     }
     window.addEventListener('keyup', (e) => {
       console.log(e.key);
