@@ -4,7 +4,9 @@
     v-for="(painting, index) in paintings"
     :key="painting.year"
     :painting="painting"
-    :indexYear="index" />
+    :indexYear="index"
+    @toggleAll="console.log('wtf')"
+    ref="year" />
     <modal />
   </main>
 </template>
@@ -15,12 +17,32 @@ import modal from '@/components/Modal.vue';
 import { mapState } from 'vuex';
 
 export default {
+  name: 'Home',
+  data() {
+    return {
+      toggleState: false,
+    };
+  },
   computed: {
     ...mapState({
       paintings: (state) => state.paintings
     })
   },
-  name: 'Home',
+  methods: {
+    toggleAll() {
+      if (this.toggleState) {
+        this.$refs.year.forEach((element) => {
+          element.openAccordion();
+        });
+        this.toggleState = !this.toggleState;
+      } else {
+        this.$refs.year.forEach((element) => {
+          element.closeAccordion();
+        });
+        this.toggleState = !this.toggleState;
+      }
+    }
+  },
   components: {
     Year,
     modal
@@ -43,8 +65,8 @@ export default {
   max-width: $max-width-content;
   margin: $l auto;
 
-  &__year {
-    margin-bottom: $l;
-  }
+  @media screen and (max-width: $vp-small) {
+      margin: 0 auto $xxl;
+    }
 }
 </style>

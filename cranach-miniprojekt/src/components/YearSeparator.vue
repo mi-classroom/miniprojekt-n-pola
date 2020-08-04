@@ -1,5 +1,5 @@
 <template>
-  <div class="year-separator">
+  <div class="year-separator" :class="{'year-separator--closed': !open}">
     <time class="year-separator__heading heading heading--h1">{{year}}</time>
     <div class="year-separator__counter">
       <span class="year-separator__line" />
@@ -8,7 +8,7 @@
         {{count}}
       </div>
     </div>
-    <div class="akkordeon__icon-wrap">
+    <div class="year-separator__icon-wrap">
       <i class="icon icon--l year-separator__icon year-separator__icon--more"
       :class="{'year-separator__icon--open': open}">expand_more</i>
     </div>
@@ -76,11 +76,44 @@ export default {
     }
   }
 
-}
+  &__icon-wrap {
+    display: flex;
+    align-items: center;
+  }
 
-.akkordeon__icon-wrap {
-  display: flex;
-  align-items: center;
+  @media screen and (max-width: $vp-small) {
+    grid-template-columns: repeat($grid-count, 1fr);
+    background: $darkest;
+    margin-bottom: $grid-mobile-gutter;
+    padding: 0 $s;
+    display: flex;
+    justify-content: space-between;
+
+    &--closed {
+      margin-bottom: 0;
+    }
+
+    &__line {
+      display: none;
+    }
+
+    &__heading {
+      color: $white;
+      font-size: $f-l;
+    }
+
+    &__icon-wrap {
+      display: none;
+    }
+
+    &__content {
+      background: none;
+    }
+
+    &__icon {
+      margin-right: $xxs;
+    }
+  }
 }
 
 </style>

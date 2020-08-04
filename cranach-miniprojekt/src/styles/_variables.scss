@@ -7,6 +7,7 @@ $s: 2 * $base;
 $m: 3 * $base;
 $l: 4 * $base;
 $xl: 5 * $base;
+$xxl: 6 * $base;
 
 /* Font Sizes
 ------------------ */
@@ -53,8 +54,8 @@ $accent-bright: #fecb2f;
 
 /* Viewports
 --------------------*/
-$vp-small: 45 * $base;
-$vp-medium: 60 * $m;
+$vp-small: 85 * $base;
+$vp-medium: 90 * $m;
 $vp-large: 94 * $m;
 
 /* Transitions Times
@@ -68,5 +69,7 @@ $max-width-content: 94 * $base;
 $modal-height: 46 * $base;
 $gutter-grid: $s;
 $grid-count: 12;
+$grid-mobile-count: 3;
+$grid-mobile-gutter: 2px;
 $grid-span-half: $grid-count / 2;
 $border-width: 2px;
