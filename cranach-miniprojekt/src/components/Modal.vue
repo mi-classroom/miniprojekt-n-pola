@@ -2,30 +2,37 @@
   <div class="modal" v-show="open" @click.self="closeModal">
     <article class="modal__content">
       <figure class="modal__details">
-        <img class="modal__details__image"
+        <img
+          class="modal__details__image"
           :src="painting.images.sizes.s.src"
+          :alt="painting.titles[0].title"
         />
         <ModalNav />
         <figcaption class="modal__details__text">
           <h3 class="modal__details__text__heading">{{painting.titles[0].title}}</h3>
           <p class="modal__details__text__description">{{painting.description}}</p>
           <article class="modal__details__facts">
-            <p>{{painting.locations[0].term}}
-            <br>{{painting.owner}}</p>
-            <p>{{painting.structuredDimension.height}}
+            <p>
+              {{painting.locations[0].term}}
+              <br />
+              {{painting.owner}}
+            </p>
+            <p>
+              {{painting.structuredDimension.height}}
               x
               {{painting.structuredDimension.width}} cm
             </p>
             <p class="modal__details__fact modal__details__fact--small">
-              {{painting.inventoryNumber}}<br>{{painting.dating.dated}}
+              {{painting.inventoryNumber}}
+              <br />
+              {{painting.dating.dated}}
             </p>
           </article>
         </figcaption>
       </figure>
       <button class="modal__button modal__button--close" @click="closeModal">
-          <i class="icon icon--s modal__button__icon">close</i>
+        <i class="icon icon--s modal__button__icon">close</i>
       </button>
-
     </article>
   </div>
 </template>
@@ -57,7 +64,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import '@/styles/_variables';
+@import "@/styles/_variables";
 
 .modal {
   position: fixed;
@@ -74,7 +81,7 @@ export default {
     max-width: $max-width-content;
     background: $darkest;
     border: $border-width solid $light;
-    transform: translate3d(0,0,0);
+    transform: translate3d(0, 0, 0);
   }
 
   &__details {
@@ -86,7 +93,7 @@ export default {
     &__image {
       grid-column: span $grid-span-half;
       height: 100%;
-      width:  100%;
+      width: 100%;
       background: #000;
       object-fit: contain;
     }
@@ -131,8 +138,8 @@ export default {
       position: absolute;
       width: $s;
       height: $s;
-      top: - $xs;
-      right: - $xs;
+      top: -$xs;
+      right: -$xs;
       background: $light;
       border-radius: 100%;
     }
@@ -144,8 +151,8 @@ export default {
     &__content {
       max-width: 100%;
       border: 0;
-      min-height: calc(100% - #{$xxl} );
-            margin-bottom: $xxl;
+      min-height: calc(100% - #{$xxl});
+      margin-bottom: $xxl;
     }
 
     &__details {
