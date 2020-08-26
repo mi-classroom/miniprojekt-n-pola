@@ -1,7 +1,7 @@
 <template>
   <div class="year-separator" :class="{'year-separator--closed': !open}">
-    <h2>
-      <time class="year-separator__heading heading heading--h1">{{year}}</time>
+    <h2 class="year-separator__heading">
+      <time class="heading heading--h1">{{year}}</time>
     </h2>
     <div class="year-separator__counter">
       <span class="year-separator__line" />
