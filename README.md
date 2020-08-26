@@ -17,6 +17,7 @@ Ich habe mich dazu entschieden <b>Vue.js</b> zu nutzen, da hier das Arbeiten in 
 * [x] Akkordeon
 * [x] Akkordeon Switch Mobile
 * [x] Responsive
+* [x] w3c HTML Validator ohne Fehler
 
 ## Extra Features 🚀
 * [X] Navigation of Modal with Keyboard
@@ -36,3 +37,6 @@ Um mehrer H1 auf einer Seite zu vermeiden habe ich pseudo Heading Klassen eingef
 
 ### Responsive
 Neben den normalen Media Queries verwende ich eine Methode, welche mobile Browser erkennt, um komplett andere Komponenten darzustellen. In Fälle bei denen sich eine Komponete im Mobile Zustand stark verändert ist so das handling etwas einfacher und das scss übersichtlicher.
+
+### Responsive Images
+Eine Einbindung von Repsonsive Bildern mittels srcset und size im image Tag war leider nicht möglich, da die Bilder dann aufgrund von Mixed Content Policies bei GitHub Pages nicht gealden werden würden.
