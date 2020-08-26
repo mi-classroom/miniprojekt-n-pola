@@ -11,7 +11,7 @@
         <figcaption class="modal__details__text">
           <h3 class="modal__details__text__heading">{{painting.titles[0].title}}</h3>
           <p class="modal__details__text__description">{{painting.description}}</p>
-          <article class="modal__details__facts">
+          <div class="modal__details__facts">
             <p>
               {{painting.locations[0].term}}
               <br />
@@ -27,7 +27,7 @@
               <br />
               {{painting.dating.dated}}
             </p>
-          </article>
+          </div>
         </figcaption>
       </figure>
       <button class="modal__button modal__button--close" @click="closeModal">
