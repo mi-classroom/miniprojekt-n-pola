@@ -113,10 +113,22 @@ export default {
 
       &__description {
         overflow: hidden;
-        text-overflow: ellipsis;
-        -webkit-line-clamp: 11;
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
+        overflow-y: auto;
+
+        &::-webkit-scrollbar {
+          width: $xxs;
+        }
+
+        &::-webkit-scrollbar-track {
+          -webkit-box-shadow: $scrollbar-shadow;
+          border-radius: $xxs;
+        }
+
+        &::-webkit-scrollbar-thumb {
+          border-radius: $xxs;
+          background: $dark;
+          -webkit-box-shadow: $scrollbar-shadow;
+        }
       }
     }
 
