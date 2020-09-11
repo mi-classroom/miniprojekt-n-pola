@@ -13,7 +13,8 @@ export default {
     const sortedPaintings = [];
 
     paintings.items.forEach((elem) => {
-      if (elem.images) {
+      if (elem.images && (elem.images.infos.maxDimensions.height
+        || elem.images.infos.maxDimensions.height)) {
         const year = elem.dating.begin;
         let found = false;
         sortedPaintings.forEach((element) => {
