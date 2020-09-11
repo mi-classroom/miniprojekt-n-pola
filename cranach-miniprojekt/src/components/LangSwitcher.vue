@@ -32,7 +32,7 @@
 import { mapState, mapActions } from 'vuex';
 
 export default {
-  name: 'Language Switcher',
+  name: 'languageSwitcher',
   computed: {
     ...mapState({
       currentLang: (state) => state.currentLang,

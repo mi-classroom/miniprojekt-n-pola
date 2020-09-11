@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <Header v-if="!isMobile()" />
-    <HeaderMobile v-else @toggleAll="toggleAccordion"/>
-    <router-view ref="viewContent"/>
+    <HeaderMobile v-else @toggleAll="toggleAccordion" />
+    <router-view ref="viewContent" />
   </div>
 </template>
 
@@ -44,7 +44,6 @@ export default {
       }
     }
     window.addEventListener('keyup', (e) => {
-      console.log(e.key);
       if (e.key === 'Escape') {
         this.closeModal();
       } else if (e.key === 'ArrowRight' && this.open) {
@@ -58,5 +57,5 @@ export default {
 </script>
 
 <style lang="scss">
-  @import '@/styles/main';
+@import "@/styles/main";
 </style>
