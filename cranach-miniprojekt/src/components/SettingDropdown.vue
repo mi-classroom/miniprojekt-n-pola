@@ -1,27 +1,24 @@
 <template>
   <div class="configuration">
-    <h4>Sprache</h4>
+    <h4>{{ name }}</h4>
     <nav class="dropwdown-menu">
       <div class="dropwdown-menu__header" @click="isOpen = !isOpen">
-        <span>{{ currentLang.label }}</span>
+        <span>{{ currentOption }}</span>
         <i class="icon icon--m">arrow_drop_down</i>
       </div>
       <ul v-show="isOpen" class="dropwdown-menu__list">
         <li
-          v-for="lang in filteredLangs"
-          class="dropwdown-menu__language"
-          :key="lang.lang"
+          v-for="option in filteredOption"
+          class="dropwdown-menu__item"
+          :key="option.index"
+          @click.self="
+            isOpen = !isOpen;
+            setOption(option);
+          "
         >
-          <router-link class="dropwdown-menu__link" :to="lang.link">
-            <span
-              @click.self="
-                isOpen = !isOpen;
-                setLang(lang);
-              "
-            >
-              {{ lang.label }}
-            </span>
-          </router-link>
+          <span>
+            {{ option }}
+          </span>
         </li>
       </ul>
     </nav>
@@ -29,44 +26,43 @@
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex';
-
 export default {
-  name: 'Language Switcher',
-  computed: {
-    ...mapState({
-      currentLang: (state) => state.currentLang,
-    }),
-    filteredLangs() {
-      const filteredLangs = [];
-      this.langs.forEach((element) => {
-        // eslint-disable-next-line eqeqeq
-        if (element.lang != this.currentLang.lang) { filteredLangs.push(element); }
-      });
-      return filteredLangs;
-    }
-  },
-  methods: {
-    ...mapActions(['setLang']),
+  name: 'settingDropdwon',
+  props: {
+    name: String,
+    options: Array,
+    start: String
   },
   data() {
     return {
       isOpen: false,
-      langs: [
-        {
-          lang: 'de',
-          link: '/de',
-          label: 'Deutsch'
-        },
-        {
-          lang: 'en',
-          link: '/en',
-          label: 'English'
-        }
-      ]
+      newOption: '',
+      forceRecomputeCounter: 0
     };
-  }
-
+  },
+  computed: {
+    currentOption() {
+      if (this.newOption) return this.newOption;
+      return this.start;
+    },
+    filteredOption() {
+      // eslint-disable-next-line no-unused-expressions
+      this.forceRecomputeCounter;
+      const filtered = [];
+      this.options.forEach((element) => {
+        // eslint-disable-next-line eqeqeq
+        if (element != this.currentOption) { filtered.push(element); }
+      });
+      return filtered;
+    }
+  },
+  methods: {
+    setOption(option) {
+      this.newOption = option;
+      // eslint-disable-next-line no-plusplus
+      this.forceRecomputeCounter++;
+    }
+  },
 };
 </script>
 
@@ -84,10 +80,12 @@ export default {
 .dropwdown-menu {
   transform: translate3d(0, 0, 0);
   min-width: 40%;
+
   &__header {
     border: $border-width solid $dark;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     padding: $xxs $xs;
     cursor: pointer;
   }
@@ -100,8 +98,9 @@ export default {
     width: 100%;
   }
 
-  &__language {
+  &__item {
     padding: $xxs $xs;
+    cursor: pointer;
 
     &:not(:last-child) {
       border-bottom: $border-width solid $dark;
