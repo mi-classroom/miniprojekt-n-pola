@@ -12,7 +12,7 @@
         >close</i
       >
     </div>
-    <setting :open="this.open" mobile="false" />
+    <setting :open="this.open" :mobile="false" />
   </header>
 </template>
 

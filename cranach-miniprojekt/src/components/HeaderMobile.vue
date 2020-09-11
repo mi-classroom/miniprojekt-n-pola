@@ -17,7 +17,7 @@
         >
       </div>
     </div>
-    <setting :open="this.open" mobile="true" />
+    <setting :open="this.open" :mobile="true" />
   </header>
 </template>
 
