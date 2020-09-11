@@ -1,5 +1,17 @@
-# [Deployed Version](https://mi-classroom.github.io/miniprojekt-n-pola/)
+# [Deployed Version - Teil 1](https://mi-classroom.github.io/miniprojekt-n-pola/)
 ❗❗ Für die mobile Ansicht muss die Seite einmal neu geladen werden, da das Menü anhand von Browser Flags, welche ein mobiles Gerät anzeigen, geändert wird ❗❗
+
+# Prüfungsteil 2
+Die Ergebnisse des zweiten Prüfungsteils sind im Branch [pruefung-teil-2](https://github.com/mi-classroom/miniprojekt-n-pola/tree/pruefung-teil-2) zu finden.
+## Installation / Ausführung
+Das Vue Projekt befindet sich im Ordner `cranach-miniprojekt`. Nach der Installation aller nötigen Packages mit `npm i` lässt sich das Projekt mit `npm run serve`ausführen.
+
+## Features Prüfungsteil 2✔
+* [x] Einstellungsmenü
+* [x] About Us Text
+* [x] Custom Dropdowns
+* [x] Resizing der Bilder per Menü
+* [x] Mobile Version des Menüs
 
 # Web-Development Miniprojekt Nils Polarek
 In diesem Miniprojekt ging es darum, eine Website anhand eines [Layouts](https://github.com/mi-classroom/content-pack-wd-miniprojekt-2020/tree/master/layouts) und Daten aus [JSON oder Markdown Files](https://github.com/mi-classroom/content-pack-wd-miniprojekt-2020/tree/master/data) zu bauen. Diese Seite bewegte sich wieder im Universum des [Cranach Digital Archives](http://lucascranach.org/) und stellt eine Übersicht von Gemälden dar, mit der Möglichkeit mehr Informationen über diese in einem Modal zu erhalten. Die Bilder sind entsprechend Ihrer Erstellungsjahre sortiert und die Jahre lassen sich aus und ein klappen.
