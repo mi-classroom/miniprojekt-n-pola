@@ -33,6 +33,8 @@
         name="Vorschaubilder"
         :options="['klein', 'mittel']"
         start="klein"
+        storeRef="currentSize"
+        action="setSize"
       />
       <langswitcher />
       <login />

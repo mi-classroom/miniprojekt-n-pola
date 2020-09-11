@@ -36,7 +36,6 @@ export default {
     }
   },
   mounted() {
-    console.log(this.$refs.reel);
     this.$refs.reel.style.height = `${this.$refs.reel.scrollHeight}px`;
   },
   updated() {

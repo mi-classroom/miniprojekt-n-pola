@@ -11,7 +11,7 @@
           v-for="option in filteredOption"
           class="dropwdown-menu__item"
           :key="option.index"
-          @click.self="
+          @click="
             isOpen = !isOpen;
             setOption(option);
           "
@@ -26,12 +26,15 @@
 </template>
 
 <script>
+
 export default {
   name: 'settingDropdwon',
   props: {
     name: String,
     options: Array,
-    start: String
+    start: String,
+    storeRef: String,
+    action: String
   },
   data() {
     return {
@@ -42,6 +45,7 @@ export default {
   },
   computed: {
     currentOption() {
+      if (this.currentOptionStore) return this.$store.state[this.currentOptionStore];
       if (this.newOption) return this.newOption;
       return this.start;
     },
@@ -58,6 +62,7 @@ export default {
   },
   methods: {
     setOption(option) {
+      if (this.action) { this.$store.dispatch(this.action, option); }
       this.newOption = option;
       // eslint-disable-next-line no-plusplus
       this.forceRecomputeCounter++;
