@@ -1,6 +1,10 @@
 <template>
   <div ref="reel" class="image-grid">
-    <figure v-for="(image, index) in images" class="image-grid__object" :key="image.objectID">
+    <figure
+      v-for="(image, index) in images"
+      class="image-grid__object"
+      :key="image.objectID"
+    >
       <img
         class="image-grid__image"
         :alt="image.titles[0].title"
@@ -13,10 +17,15 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import { mapActions, mapState } from 'vuex';
 
 export default {
   name: 'ImageGrid',
+  computed: {
+    ...mapState({
+      currentSize: (state) => state.currentSize
+    }),
+  },
   methods: {
     ...mapActions(['removeImageAction', 'showImageModal']),
     removeImage($event, index) {
@@ -27,10 +36,28 @@ export default {
     }
   },
   mounted() {
+    console.log(this.$refs.reel);
     this.$refs.reel.style.height = `${this.$refs.reel.scrollHeight}px`;
   },
   updated() {
     if (this.$refs.reel.style.height !== 0) { this.$refs.reel.style.height = 'auto'; this.$refs.reel.style.height = `${this.$refs.reel.scrollHeight}px`; }
+  },
+  watch: {
+    currentSize() {
+      if (this.currentSize === 'klein') {
+        this.$refs.reel.children.forEach((element) => {
+          // eslint-disable-next-line no-param-reassign
+          element.style.gridColumn = 'span 2';
+        });
+        if (this.$refs.reel.style.height !== 0) { this.$refs.reel.style.height = 'auto'; this.$refs.reel.style.height = `${this.$refs.reel.scrollHeight}px`; }
+      } else if (this.currentSize === 'mittel') {
+        this.$refs.reel.children.forEach((element) => {
+          // eslint-disable-next-line no-param-reassign
+          element.style.gridColumn = 'span 4';
+        });
+        if (this.$refs.reel.style.height !== 0) { this.$refs.reel.style.height = 'auto'; this.$refs.reel.style.height = `${this.$refs.reel.scrollHeight}px`; }
+      }
+    }
   },
   props: {
     images: Array,
@@ -40,7 +67,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import '@/styles/_variables';
+@import "@/styles/_variables";
 
 .image-grid {
   display: grid;
@@ -55,7 +82,7 @@ export default {
     cursor: pointer;
 
     &::before {
-      content: '';
+      content: "";
       display: inline-block;
       width: 1px;
       height: 0;

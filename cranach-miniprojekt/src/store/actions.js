@@ -56,5 +56,8 @@ export default {
   },
   setLang({ commit }, newLang) {
     commit('mutateLang', newLang);
-  }
+  },
+  setSize({ commit }, newSize) {
+    commit('mutateSize', newSize);
+  },
 };

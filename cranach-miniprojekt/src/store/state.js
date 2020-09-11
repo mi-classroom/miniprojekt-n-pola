@@ -3,6 +3,7 @@ export default {
   currentModalImage: {},
   modalOpen: false,
   currentLang: {},
+  currentSize: 'klein',
   availableLanguages: {
     de: {
       lang: 'de',

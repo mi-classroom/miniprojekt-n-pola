@@ -42,5 +42,8 @@ export default {
   },
   mutateLang(state, newLang) {
     state.currentLang = newLang;
+  },
+  mutateSize(state, size) {
+    state.currentSize = size;
   }
 };
