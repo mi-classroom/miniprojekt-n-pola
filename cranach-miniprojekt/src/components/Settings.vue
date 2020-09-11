@@ -94,6 +94,10 @@ export default {
     display: block;
   }
 
+  &__information {
+    padding-right: $xxxl;
+  }
+
   &__configuration {
     &--mobile {
       padding: $xs $s;
