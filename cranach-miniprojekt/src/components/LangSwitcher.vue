@@ -88,6 +88,7 @@ export default {
     border: $border-width solid $dark;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     padding: $xxs $xs;
     cursor: pointer;
   }

@@ -1,6 +1,6 @@
 <template>
-  <div class="settings" ref="reel">
-    <section class="settings__information">
+  <div class="settings" ref="reel" :class="{ 'settings--mobile': mobile }">
+    <section v-show="!mobile" class="settings__information">
       <p>
         Lucas Cranach der Ältere (1472 – 1553) gehört zu den bedeutendsten
         Malern und Grafikern der deutschen Renaissance. Bereits seine
@@ -27,7 +27,10 @@
         erleichtern.
       </p>
     </section>
-    <section class="settings__configuration">
+    <section
+      class="settings__configuration"
+      :class="{ 'settings__configuration--mobile': mobile }"
+    >
       <dropdown name="Darkmode" :options="['aus', 'an']" start="an" />
       <dropdown
         name="Vorschaubilder"
@@ -55,12 +58,17 @@ export default {
     login
   },
   props: {
-    open: Boolean
+    open: Boolean,
+    mobile: Boolean
   },
   watch: {
     open() {
       if (this.open) {
-        this.$refs.reel.style.height = `${this.$refs.reel.scrollHeight}px`;
+        if (!this.mobile) {
+          this.$refs.reel.style.height = `${this.$refs.reel.scrollHeight}px`;
+        } else {
+          this.$refs.reel.style.height = 'calc(100vh - 60px)';
+        }
       } else {
         this.$refs.reel.style.height = 0;
       }
@@ -82,7 +90,17 @@ export default {
   transition: all $transition-fast ease;
   overflow: hidden;
 
-  & > * {
+  &--mobile {
+    display: block;
+  }
+
+  &__configuration {
+    &--mobile {
+      padding: $xs $s;
+    }
+  }
+
+  & > {
     padding: $s 0;
   }
 }
